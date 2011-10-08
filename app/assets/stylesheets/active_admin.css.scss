@@ -4,3 +4,27 @@
 
 // To customize the Active Admin interfaces, add your
 // styles here:
+
+table.dashboard {
+  width: auto;
+}
+
+form input[type="text"].small-input {
+  width: 50px;
+}
+
+table#ads-dashboard {
+  table-layout: fixed;
+  width: 300px;
+  border-collapse: collapse;
+  td {
+    border: 1px solid #ccc;
+  }
+  td.image {
+    width: 70px;
+  }
+}
+
+fieldset[name="Page"] {
+  padding-bottom: 40px;
+}

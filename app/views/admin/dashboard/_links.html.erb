@@ -1,0 +1,6 @@
+<ul id="menu-dashboard">
+  <% Menu.ordered.each do |menu| %>
+    <li><%= link_to menu.title, menu_path(menu) %> [<%= link_to "Edit", edit_admin_menu_path(menu) %>]</li>
+  <% end %>
+</ul>
+<%= link_to "New Menu Heading", new_admin_menu_path %>

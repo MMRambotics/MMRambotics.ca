@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
   validate :external_link_only, :if => :external_link?
 
   default_scope order("updated_at DESC")
+  scope :pages_with_content, where("content IS NOT NULL and content != ''")
+  scope :pages_with_external, where("external_link IS NOT NULL and external_link != ''")
 
   def to_param
     "#{self.id}-#{self.title.parameterize}"

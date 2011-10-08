@@ -1,5 +1,28 @@
 ActiveAdmin::Dashboards.build do
 
+  section "Active Ads" do
+    div do
+      render "ads"
+    end
+  end
+
+  section "Menu Links" do
+    div do
+      render "links"
+    end
+  end
+
+  section "Content Pages" do
+    div do
+      render "content_pages"
+    end
+  end
+
+  section "External Pages" do
+    div do
+      render "external_pages"
+    end
+  end
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.

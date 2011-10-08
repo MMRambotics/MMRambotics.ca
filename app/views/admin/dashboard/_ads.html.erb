@@ -1,0 +1,14 @@
+<table id="ads-dashboard">
+  <% Ad.dashboard.each do |ad| %>
+    <tr>
+      <td class="image">
+        <%= image_tag(ad.image, :width => "60") %>
+      </td>
+      <td>
+        <%= link_to ad.title, ad.external_url, :target => "_blank" %><br />
+        [<%= ad.format.capitalize %>]<br />
+        <%= link_to "Quick Edit", edit_admin_ad_path(ad) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
