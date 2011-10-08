@@ -1,0 +1,166 @@
+@font-face {
+	font-family: Bebas;
+	src: url(/bebas.ttf);
+}
+
+@mixin image-right($width) {
+  width: $width;
+  margin: 15px;
+  float: right;
+  background-color: #111;
+  text-align: center;
+  padding-top: 10px;
+
+  p {
+    font-size: 90%;
+    padding-bottom: 5px;
+  }
+}
+
+$sidebar_width: 200px;
+
+body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blockquote, input, textarea {
+  margin:  0px;
+  padding: 0px;
+  font-family: "Droid Sans", Arial, sans-serif;
+  color: #fff;
+}
+
+img {
+  border: 0px;
+}
+
+body {
+  background: #000 image-url("main-background.png") no-repeat top center;
+}
+
+div#container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: image-url("container-background.png") repeat-y top center;
+
+  div#main-container {
+    background: image-url("container-background-bright.png") no-repeat top center;
+    width: 960px;
+    margin: 0 auto;
+    min-height: 400px;
+
+    div#sidebar {
+      float: left;
+      width: $sidebar_width;
+      background: image-url("border-sidebar.png") no-repeat top left;
+      min-height: 500px;
+      padding: 50px 0px 0px 20px;
+    }
+
+    div#content {
+      float: left;
+      width: 700px;
+      min-height: 500px;
+      padding-bottom: 50px;
+
+      div#header {
+        text-align: right;
+        padding: 44px 0px 0px 0px;
+        margin-bottom: 15px;
+        padding-right: 10px;
+        h2, h3 { font-family: Bebas; }
+        h2 {
+          margin-bottom: 4px;
+          font-size: 60px;
+        }
+        h3 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+#homepage-image {
+  @include image-right(230px);
+}
+
+h3 {
+  margin: 10px 0px;
+}
+
+h3.homepage-head {
+  font-style: italic;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+div#page-content {
+  line-height: 140%;
+}
+
+ul#main-menu {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  line-height: 35px;
+
+  li a, span {
+    color: #ddd;
+    font-family: Bebas;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 0px 0px 3px 3px;
+
+    &:hover, &:active, &:focus {
+      $shadow: -10px 0px 5px -5px rgba(51, 153, 255, 0.6);
+      @include box-shadow($shadow);
+      color: #fff;
+    }
+  }
+
+  > li {
+    width: $sidebar-width - 20px;
+    position: relative;
+    text-align: right;
+
+    ul.sub-menu {
+      background: image-url("menu-bg.png");
+      z-index: 3;
+      margin: 0px; padding: 0px;
+      display: none;
+      position: absolute;
+      top: -3px;
+      list-style: none;
+      text-align: left;
+      left: $sidebar-width - 20px;
+      padding: 10px;
+      @include border-radius(0px 12px 12px 0px);
+
+      li {
+        padding: 0px;
+        width: 230px;
+        position: relative;
+        a {
+          font-size: 18px;
+          display: block;
+          padding-left: 3px;
+        }
+      }
+    }
+
+    &:hover, &:active, &:focus {
+      ul.sub-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+ul#sub-menu-page {
+  list-style: none;
+  font-size: 20px;
+  line-height: 30px;
+}

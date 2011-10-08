@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  is_index: false
+
+two:
+  title: MyString
+  content: MyText
+  is_index: false

@@ -1,0 +1,22 @@
+<ul id="main-menu">
+  <li><%= link_to "Home", Page.home %></li>
+  <% Menu.all.each do |menu| %>
+    <li>
+      <% if menu.pages.length == 1 %>
+        <%= link_to menu.title, page_path(menu.pages.first) %>
+      <% elsif menu.pages.length > 1 %>
+        <span><%= link_to menu.title, menu_path(menu) %></span>
+        <ul class="sub-menu">
+          <% menu.pages.each do |page| %>
+            <li><%= sub_menu_link(page) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+  <li><%= link_to "FIRST", "http://usfirst.org", :target => "_blank" %></li>
+</ul>
+
+<br />
+
+<%= link_to image_tag(Robotics::Application.config.first_logo, :width => "180"), "http://usfirst.org", :target => "_blank" %></li>

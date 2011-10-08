@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title content_for(:title) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="container">
+    <div id="main-container">
+      <div id="sidebar">
+        <%= render :partial => "menus/menu" %>
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h2><%= content_for :title %></h2>
+          <h3><%= Robotics::Application.config.page_subheading %></h3>
+        </div>
+        <div id="page-content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
