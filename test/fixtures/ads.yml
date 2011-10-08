@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  format: MyString
+  url: MyString
+  title: MyString
+  priority: 1
+
+two:
+  format: MyString
+  url: MyString
+  title: MyString
+  priority: 1

@@ -18,6 +18,7 @@
 }
 
 $sidebar_width: 200px;
+$link-colour: #aaf;
 
 body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blockquote, input, textarea {
   margin:  0px;
@@ -32,6 +33,23 @@ img {
 
 body {
   background: #000 image-url("main-background.png") no-repeat top center;
+}
+
+div#rotating-ads {
+  margin: 10px;
+  text-align: center;
+
+  .rotating-ad {
+    display: none;
+    &:hover img {
+      $shadow: 0px 0px 16px rgba(255, 255, 255, 0.3);
+      @include box-shadow($shadow);
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
 }
 
 div#container {
@@ -80,7 +98,9 @@ div#container {
 }
 
 #homepage-image {
+  $shadow: 0px 0px 9px rgba(255, 255, 255, 0.3);
   @include image-right(230px);
+  @include box-shadow($shadow);
 }
 
 h3 {
@@ -97,6 +117,10 @@ p + p {
 
 div#page-content {
   line-height: 140%;
+
+  a:link { color: $link-colour; text-decoration: none; }
+  a:visited { color: darken($link-colour, 15%); }
+  a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
 }
 
 ul#main-menu {
