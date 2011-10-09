@@ -1,0 +1,95 @@
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -o-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
+}
+
+$tag-margin: 8px;
+
+table#view-playlist-table {
+  table-layout: fixed;
+
+  td#view-playlist-video {
+    width: 500px;
+  }
+
+  #embed-video object {
+    width: 480px;
+    height: 380px;
+  }
+
+  div#video-data {
+    color: #111;
+    div#video-title {
+      font-weight: bold;
+      font-size: 110%;
+    }
+
+    div {
+      margin: 10px 0px;
+    }
+  }
+}
+
+table#video-carousel {
+  tbody {
+    tr {
+      display: none;
+      cursor: pointer;
+
+      &:hover {
+        img {
+          border-color: rgba(0, 0, 0, 0.8);
+          $shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 16px rgba(0, 0, 0, 0.7);
+          @include box-shadow($shadow);
+        }
+      }
+      td {
+        padding: 5px;
+      }
+    }
+  }
+  thead, tfoot { cursor: pointer; text-align: center; }
+}
+
+table#youtube-playlists-table {
+  table-layout: fixed;
+  width: 680px;
+
+  tr {
+    cursor: pointer;
+    &:hover {
+      img {
+        border-color: rgba(82, 168, 236, 0.8);
+        $shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 16px rgba(82, 168, 236, 0.8);
+        @include box-shadow($shadow);
+      }
+
+      div.playlist-title {
+        @include transform(rotate(-1deg));
+        &::after {
+          content: " <--";
+        }
+        &::before {
+          content: "--> ";
+        }
+      }
+    }
+  }
+
+  td.playlist-image {
+    width: 140px;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  div.playlist-title {
+    font-family: Bebas;
+    letter-spacing: 2px;
+  }
+}

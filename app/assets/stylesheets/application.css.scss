@@ -1,3 +1,5 @@
+@import "youtube.css.scss";
+
 @font-face {
 	font-family: Bebas;
 	src: url(/bebas.ttf);
@@ -24,7 +26,6 @@ body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blo
   margin:  0px;
   padding: 0px;
   font-family: "Droid Sans", Arial, sans-serif;
-  color: #fff;
 }
 
 img {
@@ -57,6 +58,7 @@ div#container {
   top: 0px;
   left: 0px;
   width: 100%;
+  color: #fff;
   background: image-url("container-background.png") repeat-y top center;
 
   div#main-container {
@@ -267,5 +269,38 @@ div#slide-down {
         font-size: 80%;
       }
     }
+  }
+}
+
+div#lightbox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  min-height: 100%;
+  z-index: 48;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+
+  div#lightbox-header {
+    width: 1045px;
+    text-align: right;
+    cursor: pointer;
+    z-index: 50;
+    height: 25px;
+    margin: 50px auto 0px auto;
+    color: #fff;
+  }
+
+  div#lightbox-content {
+    width: 960px;
+    margin: -12px auto 50px auto;
+    z-index: 48;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 30px;
+    @include border-radius(5px);
+    @include box-shadow(4px 4px 16px rgba(82, 168, 236, 0.6));
+    overflow: auto;
   }
 }

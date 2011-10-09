@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require youtube
 
 function incrementAd() {
   $.currentAd++;
@@ -18,6 +19,17 @@ function showNextAd() {
 
 function togglePostings() {
   $("#postings").toggle();
+}
+
+function showLightbox() {
+  setTimeout('$("#lightbox-content").show()', 500);
+  $("#lightbox").fadeIn(1000);
+  window.location = "#lightbox";
+}
+
+function hideLightbox() {
+  setTimeout('$("#lightbox-content").hide()', 200);
+  $("#lightbox").fadeOut();
 }
 
 $(function() {
@@ -40,5 +52,9 @@ $(function() {
       setTimeout(togglePostings, 500);
       $.visible = true;
     }
+  });
+
+  $("#lightbox-header").click(function() {
+    hideLightbox();
   });
 });
