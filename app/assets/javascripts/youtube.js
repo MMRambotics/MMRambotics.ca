@@ -149,10 +149,5 @@ $(function() {
     $(".carousel-video").live("click", function() {
       switchLightboxVideo($(this));
     });
-
-    $("#lightbox").click(function() {
-      if (outsideLightboxContent(event.pageX, event.pageY))
-        hideLightbox();
-    });
   }
 });

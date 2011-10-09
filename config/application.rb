@@ -15,7 +15,7 @@ module Robotics
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.page_title = "MMRambotics"
+    config.page_title = "MMRambotics FRC #2200"
     config.page_subheading = "MMRambotics FRC Team #2200"
     config.first_logo = "http://www.usfirst.org/uploadedImages/Robotics_Programs/FRC/FRC_Communications_Resource_Center/Branding_and_Logos/FRCicon_Reverse.gif"
 

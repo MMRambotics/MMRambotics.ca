@@ -17,10 +17,6 @@ function showNextAd() {
   $(adSelector()).addClass("visible");
 }
 
-function togglePostings() {
-  $("#postings").toggle();
-}
-
 function showLightbox() {
   setTimeout('$("#lightbox-content").show()', 500);
   $("#lightbox").fadeIn(1000);
@@ -30,6 +26,12 @@ function showLightbox() {
 function hideLightbox() {
   setTimeout('$("#lightbox-content").hide()', 200);
   $("#lightbox").fadeOut();
+}
+
+function hidePostings() {
+  $("#slide-down").animate({ height: "0" }, 1000);
+  setTimeout('$("#postings").hide()', 1000);
+  $.visible = false;
 }
 
 $(function() {
@@ -44,17 +46,31 @@ $(function() {
   $.visible = false;
   $("#bar").click(function() {
     if ($.visible) {
-      $("#slide-down").animate({ height: "0" }, 1000);
-      setTimeout(togglePostings, 1000);
-      $.visible = false;
+      hidePostings();
     } else {
       $("#slide-down").animate({ height: "400" }, 2000);
-      setTimeout(togglePostings, 500);
+      setTimeout('$("#postings").show()', 500);
       $.visible = true;
     }
   });
 
   $("#lightbox-header").click(function() {
     hideLightbox();
+  });
+
+  $("#postings-hr").click(function() {
+    hidePostings();
+  });
+
+  $("#lightbox").click(function() {
+    if (outsideLightboxContent(event.pageX, event.pageY))
+      hideLightbox();
+  });
+
+  $(document).click(function() {
+    if ($("#slide-down").css("display") != "none") {
+      if (event.pageY > ($("#slide-down").position().top + $("#slide-down").outerHeight()))
+        hidePostings();
+    }
   });
 });
