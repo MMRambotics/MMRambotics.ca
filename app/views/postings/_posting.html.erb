@@ -1,0 +1,15 @@
+<div class="feed-item">
+  <p>
+    <span class="highlight">
+      <%= @item.date %>
+      <% if @item.sticky %>
+        &nbsp;<span>[Sticky]</span>
+      <% end %>
+    </span>
+    <br />
+    <span><%= @item.content.html_safe %></span>
+    <% unless @item.read_more_url.blank? %>
+      <br /><span class="highlight"><%= link_to "Read more...", @item.read_more_url %></span>
+    <% end %>
+  </p>
+</div>

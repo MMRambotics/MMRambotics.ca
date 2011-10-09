@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008204249) do
+ActiveRecord::Schema.define(:version => 20111009014148) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -73,6 +73,16 @@ ActiveRecord::Schema.define(:version => 20111008204249) do
     t.datetime "updated_at"
     t.integer  "menu_id"
     t.string   "external_link"
+  end
+
+  create_table "postings", :force => true do |t|
+    t.string   "category"
+    t.string   "read_more_url"
+    t.text     "content"
+    t.datetime "custom_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "sticky",        :default => false
   end
 
 end

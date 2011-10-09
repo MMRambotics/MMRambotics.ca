@@ -9,6 +9,15 @@
 </head>
 <body>
 
+  <div id="bar">
+    News, Events, Notices
+  </div>
+  <div id="slide-down">
+    <div id="postings">
+      <%= render :partial => "postings/three_column", :locals => { :news => @news, :events => @events, :team_notices => @team_notices } %>
+    </div>
+  </div>
+
   <div id="container">
     <div id="main-container">
       <div id="sidebar">

@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <th>News</th>
+    <th>Events</th>
+    <th>Team Notices</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="news">
+        <% @news.each do |item| %>
+          <% @item = item %>
+          <%= render :partial => "postings/posting" %>
+        <% end %>
+      </td>
+
+      <td id="events">
+        <% @events.each do |item| %>
+          <% @item = item %>
+          <%= render :partial => "postings/posting" %>
+        <% end %>
+      </td>
+
+      <td id="notices">
+        <% @team_notices.each do |item| %>
+          <% @item = item %>
+          <%= render :partial => "postings/posting" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"><%= image_tag("hr.png") %></td>
+    </tr>      
+  </tbody>
+</table>
