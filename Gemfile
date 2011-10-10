@@ -11,9 +11,10 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
   gem 'uglifier'
 end
+
+gem 'sass-rails'
 
 gem 'jquery-rails'
 gem 'activeadmin'
@@ -29,6 +30,10 @@ gem 'dj'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development do
+  gem 'rails-dev-tweaks', '~> 0.5.1'
+end
 
 group :test do
   # Pretty printed test output
