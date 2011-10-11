@@ -30,12 +30,6 @@ function hideLightbox() {
   $("#lightbox").fadeOut();
 }
 
-function hidePostings() {
-  $("#slide-down").animate({ height: "0" }, 1000);
-  setTimeout('$("#postings").hide()', 1000);
-  $.visible = false;
-}
-
 $(function() {
   // Rotating Ads
   if ($(".rotating-ad").length >= 1) {
@@ -45,15 +39,8 @@ $(function() {
     setInterval(showNextAd, 3000);
   }
 
-  $.visible = false;
   $("#bar").click(function() {
-    if ($.visible) {
-      hidePostings();
-    } else {
-      $("#slide-down").animate({ height: "400" }, 2000);
-      setTimeout('$("#postings").show()', 500);
-      $.visible = true;
-    }
+    $("#slide-down").slideToggle(1000);
   });
 
   $("#lightbox-header").click(function() {
@@ -61,7 +48,7 @@ $(function() {
   });
 
   $("#postings-hr").click(function() {
-    hidePostings();
+    $("#slide-down").slideToggle(1000);
   });
 
   $("#lightbox").click(function() {
@@ -72,7 +59,7 @@ $(function() {
   $(document).click(function() {
     if ($("#slide-down").css("display") != "none") {
       if (event.pageY > ($("#slide-down").position().top + $("#slide-down").outerHeight()))
-        hidePostings();
+        $("#slide-down").slideToggle(1000);
     }
   });
 });

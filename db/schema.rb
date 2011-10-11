@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009200334) do
+ActiveRecord::Schema.define(:version => 20111011171944) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20111009200334) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order",      :default => 1
     t.integer  "priority",   :default => 1
   end
 
@@ -104,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20111009200334) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "sticky",        :default => false
+    t.string   "gcalendar_id"
+    t.datetime "end_date"
   end
 
 end
