@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require youtube
 //= require albums
+//= require photos
 
 function incrementAd() {
   $.currentAd++;

@@ -1,3 +1,4 @@
+//for (var i in $.playlists) { if($.playlists.hasOwnProperty(i)) console.log(i); }
 function populatePlaylists() {
   $("#youtube-playlists").html('<table id="youtube-playlists-table"><tbody></tbody></table>');
   $.playlists = {}

@@ -1,2 +1,4 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function() {
+  $("#next-photo").attr("data-remote", true);
+  $("#prev-photo").attr("data-remote", true);
+});

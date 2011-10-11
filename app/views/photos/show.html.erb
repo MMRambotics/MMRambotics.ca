@@ -2,11 +2,15 @@
 
 <div id="albums-header">
   <span><%= link_to "Album [#{@photo.album.title}]", album_path(@photo.album), :class => "small-button" %></span>
+  <% if @photo.album.photos.length > 1 %>
+    <span><%= link_to "Next", photo_path(@photo.next), :class => "small-button", :id => "next-photo" %></span>
+    <span><%= link_to "Prev", photo_path(@photo.prev), :class => "small-button", :id => "prev-photo" %></span>
+  <% end %>
 </div>
 
 <div id="image">
   <div id="image-box">
-    <%= image_tag(@photo.image, :width => "670") %>
+    <%= link_to image_tag(@photo.image, :width => "670"), @photo.image.url, :title => @photo.title, :target => "_blank" %>
   </div>
   <div id="image-data">
     <%= @photo.description %>

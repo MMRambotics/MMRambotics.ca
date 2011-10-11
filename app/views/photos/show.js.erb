@@ -1,0 +1,10 @@
+$("#header h2").text("<%= @photo.title %>");
+$("#next-photo").attr("href", "<%= photo_path(@photo.next) %>");
+$("#prev-photo").attr("href", "<%= photo_path(@photo.prev) %>");
+$("#image-box img").attr("src", "<%= @photo.image.url %>");
+$("#image-box a").attr("title", "<%= @photo.title %>");
+$("#image-box a").attr("href", "<%= @photo.image.url %>");
+$("#image-data").html("<%=j @photo.description %>")
+document.title = "<%= @photo.title %> | MMRambotics FRC #2200";
+if (window.history.pushState)
+  window.history.pushState({}, "<%= @photo.title %> | MMRambotics FRC #2200", "<%= photo_path(@photo) %>");
