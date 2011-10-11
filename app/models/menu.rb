@@ -4,6 +4,10 @@ class Menu < ActiveRecord::Base
 
   scope :ordered, order("priority DESC, title")
 
+  def items
+    self.pages.reorder("title")
+  end
+
   def to_param
     "#{self.id}-#{self.title.parameterize}"
   end

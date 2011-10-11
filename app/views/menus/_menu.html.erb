@@ -7,14 +7,13 @@
       <% elsif menu.pages.length > 1 %>
         <span><%= link_to menu.title, menu_path(menu) %></span>
         <ul class="sub-menu">
-          <% menu.pages.each do |page| %>
+          <% menu.items.each do |page| %>
             <li><%= sub_menu_link(page) %></li>
           <% end %>
         </ul>
       <% end %>
     </li>
   <% end %>
-  <li><%= link_to "FIRST", "http://usfirst.org", :target => "_blank" %></li>
 </ul>
 
 <br />
