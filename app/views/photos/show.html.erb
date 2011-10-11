@@ -1,0 +1,14 @@
+<% content_for :title, @photo.title %>
+
+<div id="albums-header">
+  <span><%= link_to "Album [#{@photo.album.title}]", album_path(@photo.album), :class => "small-button" %></span>
+</div>
+
+<div id="image">
+  <div id="image-box">
+    <%= image_tag(@photo.image, :width => "670") %>
+  </div>
+  <div id="image-data">
+    <%= @photo.description %>
+  </div>
+</div>

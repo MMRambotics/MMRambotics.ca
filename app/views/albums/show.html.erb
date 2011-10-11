@@ -1,0 +1,36 @@
+<% content_for :title, @album.title %>
+
+<div id="albums-header">
+  <span id="album-header-info"></span>
+  <span><a href="?view=thumb" id="albums-thumb-button" class="small-button">Thumbnails</a></span>
+  <span><a href="?view=list" id="albums-list-button" class="small-button">List</a></span>
+</div>
+
+<div id="albums-container">
+  <div id="albums-thumbnails"<%= params[:view] == "thumb" ? "" : "style='display:none;'" %>>
+    <% @album.photos.each do |photo| %>
+      <div class="image">
+        <%= link_to image_tag(photo.thumb, :size => "150x150"), photo_path(photo), :title => photo.title %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="albums-listing"<%= params[:view] == "thumb" ? "style='display:none';" : "" %>>
+    <table>
+      <tbody>
+        <% @album.photos.each do |photo| %>
+          <tr>
+            <td><%= link_to image_tag(photo.thumb, :size => "100x100"), photo_path(photo), :title => photo.title %></td>
+            <td>
+              <div class="album-short">
+                <b><div><%= photo.title %></div></b><br />
+                Updated <%= time_ago_in_words(photo.updated_at) %> ago.<br />
+                <%= photo.description %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

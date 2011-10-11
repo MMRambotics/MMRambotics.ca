@@ -1,0 +1,13 @@
+div#image {
+  margin: 15px;
+
+  div#image-box img {
+    border-color: rgba(0, 0, 0, 0.8);
+    $shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 16px rgba(0, 0, 0, 0.7);
+    @include box-shadow($shadow);
+  }
+  
+  div#image-data {
+    margin: 10px 0px;
+  }
+}

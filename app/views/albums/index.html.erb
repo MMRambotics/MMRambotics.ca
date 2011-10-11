@@ -1,0 +1,43 @@
+<% content_for :title, "All Albums" %>
+
+<div id="albums-header">
+  <span id="album-header-info"></span>
+  <span><a href="?view=thumb" id="albums-thumb-button" class="small-button">Thumbnails</a></span>
+  <span><a href="?view=list" id="albums-list-button" class="small-button">List</a></span>
+</div>
+
+<div id="albums-container">
+  <div id="albums-thumbnails"<%= params[:view] == "thumb" ? "" : "style='display:none;'" %>>
+    <% @albums.each do |album| %>
+      <% if album.photos.length > 0 %>
+        <div class="image">
+          <%= link_to image_tag(album.first_image, :size => "150x150"), album_path(album), :title => album.title %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="albums-listing"<%= params[:view] == "thumb" ? "style='display:none';" : "" %>>
+    <table>
+      <tbody>
+        <% @albums.each do |album| %>
+          <% if album.photos.length > 0 %>
+            <tr>
+              <td><%= link_to image_tag(album.first_image, :size => "100x100"), album_path(album), :title => album.title %></td>
+              <td>
+                <div class="album-short">
+                  <b><div><%= album.title %></div></b><br />
+                  Updated <%= time_ago_in_words(album.updated_at) %> ago.<br />
+                  <%= pluralize(album.photos.length, "Photo") %>
+                  <% if album.read_more.present? %>
+                    <br /><%= link_to "Read More", album.read_more %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009014148) do
+ActiveRecord::Schema.define(:version => 20111009200334) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -57,11 +57,17 @@ ActiveRecord::Schema.define(:version => 20111009014148) do
     t.datetime "updated_at"
   end
 
+  create_table "albums", :force => true do |t|
+    t.string   "title"
+    t.string   "read_more"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "menus", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order",      :default => 1
     t.integer  "priority",   :default => 1
   end
 
@@ -73,6 +79,21 @@ ActiveRecord::Schema.define(:version => 20111009014148) do
     t.datetime "updated_at"
     t.integer  "menu_id"
     t.string   "external_link"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "album_id"
+    t.boolean  "slideshow"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.string   "thumbnail_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "postings", :force => true do |t|

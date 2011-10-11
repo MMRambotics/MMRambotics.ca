@@ -1,10 +1,11 @@
 Robotics::Application.routes.draw do
-
   resources :pages, :only => [:index, :show] do
     get "home", :on => :collection
   end
 
-  resources :menus, :only => [:show]
+  resources :menus,  :only => [:show]
+  resources :albums, :only => [:index, :show]
+  resources :photos, :only => [:show]
 
   root :to => "pages#home"
 

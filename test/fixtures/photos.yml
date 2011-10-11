@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  album_id: 1
+  thumbnail: MyString
+  image: MyString
+  slideshow: false
+
+two:
+  title: MyString
+  description: MyString
+  album_id: 1
+  thumbnail: MyString
+  image: MyString
+  slideshow: false
