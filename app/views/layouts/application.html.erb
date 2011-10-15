@@ -42,5 +42,13 @@
     </div>
   </div>
 
+  <div id="feedback-button">
+    <span><%= link_to "Feedback", "?feedback=true", :id => "feedback-anchor" %></span>
+  </div>
+
+  <div id="feedback-form" <%= params[:feedback] == "true" ? "" : "class='hidden'" %>>
+    <%= render :partial => "feedback/new" %>
+  </div>
+
 </body>
 </html>

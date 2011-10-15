@@ -6,6 +6,7 @@ Robotics::Application.routes.draw do
   resources :menus,  :only => [:show]
   resources :albums, :only => [:index, :show]
   resources :photos, :only => [:show]
+  resources :feedbacks, :only => [:create]
 
   root :to => "pages#home"
 

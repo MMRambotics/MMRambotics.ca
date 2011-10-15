@@ -3,6 +3,7 @@
 //= require youtube
 //= require albums
 //= require photos
+//= require feedbacks
 
 function incrementAd() {
   $.currentAd++;
@@ -60,6 +61,11 @@ $(function() {
     if ($("#slide-down").css("display") != "none") {
       if (event.pageY > ($("#slide-down").position().top + $("#slide-down").outerHeight()))
         $("#slide-down").slideToggle(1000);
+    }
+
+    if ($("#feedback-form").css("display") != "none") {
+      if (event.pageY < $("#feedback-form").position().top || event.pageX < $("#feedback-form").position().left)
+        $("#feedback-form").fadeOut();
     }
   });
 });

@@ -1,0 +1,26 @@
+<%= form_for @new_feedback do |f| %>
+  <%= f.label :name, "Your Name" %><br />
+  <%= f.text_field :name %><br />
+  <br />
+  <%= f.label :email, "Email Address" %><br />
+  <%= f.text_field :email %><br />
+  <br />
+  <%= f.label :can_contact, "May we contact you?" %>
+  <%= f.check_box :can_contact %><br />
+  <br />
+  <%= f.label :person, "Are you a..." %><br />
+  <%= f.select :person, Feedback.person_categories %><br />
+  <%= f.hidden_field :browser, :id => "feedback-browser" %>
+  <%= f.hidden_field :os, :id => "feedback-os" %>
+  <%= f.hidden_field :browser_width, :id => "feedback-width" %>
+  <%= f.hidden_field :browser_height, :id => "feedback-height" %>
+  <%= f.label :content, "Feedback..." %><br />
+  <%= f.text_area :content %>
+
+  <br />
+  <%= f.submit "Send Feedback" %>
+  <br />
+  <p>
+  All fields are optional.  With your permission, a team member may contact you only about your feedback at the given email address.  By filling out this field we collect information about your current browser, operating system, window resolution and IP address.
+  </p>
+<% end %>

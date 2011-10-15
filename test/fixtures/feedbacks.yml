@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  browser: MyString
+  browser_width: 1
+  browser_height: 1
+  os: MyString
+  email: MyString
+  name: MyString
+  can_contact: false
+  content: MyString
+  person: MyString
+
+two:
+  browser: MyString
+  browser_width: 1
+  browser_height: 1
+  os: MyString
+  email: MyString
+  name: MyString
+  can_contact: false
+  content: MyString
+  person: MyString
