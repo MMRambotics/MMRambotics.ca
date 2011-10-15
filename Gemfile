@@ -22,6 +22,7 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'rdiscount'
 gem 'dj'
 gem 'paperclip'
+gem 'yaml_db'
 
 # Use unicorn as the web server
 # gem 'unicorn'
