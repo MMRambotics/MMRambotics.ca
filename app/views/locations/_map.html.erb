@@ -1,0 +1,7 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+  $.locations = '<%=raw @locations.to_json %>';
+  window.onload = initMap;
+</script>
+<div id="map">
+</div>

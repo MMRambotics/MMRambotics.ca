@@ -2,13 +2,27 @@
 
 <div id="albums-header">
   <span id="album-header-info"></span>
-  <span><a href="?view=thumb" id="albums-thumb-button" class="small-button">Thumbnails</a></span>
-  <span><a href="?view=list" id="albums-list-button" class="small-button">List</a></span>
+  <span><%= link_to "Thumbnails", query(:view => :thumb), :class => "small-button", :id => "albums-thumb-button" %></span>
+  <span><%= link_to "List",       query(:view => :list),  :class => "small-button", :id => "albums-list-button" %></span>
   <span><%= link_to "Other Albums", albums_path, :class => "small-button" %></span>
+  <% if @album.locations.length > 0 %>
+    <% unless params[:location] == "true" %>
+      <span><%= link_to "Show Location", query(:location => true),  :class => "small-button", :id => "toggle-location-button" %></span>
+    <% else %>
+      <span><%= link_to "Hide Location", query(:location => false), :class => "small-button", :id => "toggle-location-button" %></span>
+    <% end %>
+  <% end %>
 </div>
 
 <div id="albums-container">
-  <div id="albums-thumbnails"<%= params[:view] == "thumb" ? "" : "style='display:none;'" %>>
+  <% if @album.locations.length > 0 %>
+    <div id="albums-map" <%= params[:location] == "true" ? "" : "class='hidden'" %>>
+      <% @locations = @album.locations %>
+      <%= render :partial => "locations/map" %>
+    </div>
+  <% end %>
+
+  <div id="albums-thumbnails"<%= params[:view] == "list" ? "style='display:none;'" : "" %>>
     <% @album.photos.each do |photo| %>
       <div class="image">
         <%= link_to image_tag(photo.thumb, :size => "150x150"), photo_path(photo), :title => photo.title %>
@@ -16,7 +30,7 @@
     <% end %>
   </div>
 
-  <div id="albums-listing"<%= params[:view] == "thumb" ? "style='display:none';" : "" %>>
+  <div id="albums-listing"<%= params[:view] == "list" ? "" : "style='display:none';" %>>
     <table>
       <tbody>
         <% @album.photos.each do |photo| %>

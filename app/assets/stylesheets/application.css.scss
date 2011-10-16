@@ -395,3 +395,10 @@ textarea {
 input[type="submit"] {
   @include button(#fff);
 }
+
+#map {
+  margin: 15px;
+  width: 670px;
+  height: 400px;
+  color: #000;
+}

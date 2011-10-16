@@ -1,5 +1,9 @@
 class Album < ActiveRecord::Base
+  has_many :location_datas
   has_many :photos
+  has_many :locations, :through => :location_datas
+  accepts_nested_attributes_for :location_datas
+
   default_scope order("updated_at DESC")
 
   def to_param

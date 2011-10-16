@@ -43,7 +43,7 @@
   </div>
 
   <div id="feedback-button">
-    <span><%= link_to "Feedback", "?feedback=true", :id => "feedback-anchor" %></span>
+    <span><%= link_to "Feedback", query(:feedback => true), :id => "feedback-anchor" %></span>
   </div>
 
   <div id="feedback-form" <%= params[:feedback] == "true" ? "" : "class='hidden'" %>>

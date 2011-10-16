@@ -25,6 +25,18 @@ ActiveAdmin.register Photo do
       f.input :slideshow,
         :label => "In slideshows?",
         :hint  => "Checking this on will place the image as part of randomized slideshows such as those on the homepage."
+      f.has_many :location_datas do |l|
+        l.input :location_id,
+          :label => "Location",
+          :as => :select,
+          :collection => Location.all
+        l.input :_destroy,
+          :as => :boolean,
+          :label => "Delete",
+          :wrapper_html => { :class => "hidden delete-input" }
+          # Javascript will remove the initial input's hidden classes.  Thus
+          # having any new inputs have no delete checkbox.
+      end
     end
 
     f.buttons

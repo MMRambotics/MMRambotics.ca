@@ -4,6 +4,7 @@
 //= require albums
 //= require photos
 //= require feedbacks
+//= require maps
 
 function incrementAd() {
   $.currentAd++;

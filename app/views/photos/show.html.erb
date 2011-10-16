@@ -1,12 +1,27 @@
 <% content_for :title, @photo.title %>
 
 <div id="albums-header">
+  <span id="album-header-info"><%= @photo.title %></span>
   <span><%= link_to "Album [#{@photo.album.title}]", album_path(@photo.album), :class => "small-button" %></span>
   <% if @photo.album.photos.length > 1 %>
     <span><%= link_to "Next", photo_path(@photo.next), :class => "small-button", :id => "next-photo" %></span>
     <span><%= link_to "Prev", photo_path(@photo.prev), :class => "small-button", :id => "prev-photo" %></span>
+    <% if @photo.locations.length > 0 %>
+      <% unless params[:location] == "true" %>
+        <span><%= link_to "Show Location", query(:location => true),  :class => "small-button", :id => "toggle-location-button" %></span>
+      <% else %>
+        <span><%= link_to "Hide Location", query(:location => false), :class => "small-button", :id => "toggle-location-button" %></span>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
+
+<% if @photo.locations.length > 0 %>
+  <div id="albums-map" <%= params[:location] == "true" ? "" : "class='hidden'" %>>
+    <% @locations = @photo.locations %>
+    <%= render :partial => "locations/map" %>
+  </div>
+<% end %>
 
 <div id="image">
   <div id="image-box">

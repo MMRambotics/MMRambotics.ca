@@ -18,4 +18,11 @@ module ApplicationHelper
       link_to page.title, page.external_link, options
     end
   end
+
+  def query(hash)
+    request.query_string.split("&").inject({}) { |hash, pair|
+      key, value = pair.split("=")
+      hash.merge(key.to_sym => value)
+    }.merge(hash).inject("?") { |str, pair| str + "#{pair[0].to_s}=#{pair[1]}&" }[0..-2]
+  end
 end

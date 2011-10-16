@@ -23,6 +23,7 @@ gem 'rdiscount'
 gem 'dj'
 gem 'paperclip'
 gem 'yaml_db'
+gem 'geocoder'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -2,8 +2,8 @@
 
 <div id="albums-header">
   <span id="album-header-info"></span>
-  <span><a href="?view=thumb" id="albums-thumb-button" class="small-button">Thumbnails</a></span>
-  <span><a href="?view=list" id="albums-list-button" class="small-button">List</a></span>
+  <span><%= link_to "Thumbnails", query(:view => :thumb), :class => "small-button", :id => "albums-thumb-button" %></span>
+  <span><%= link_to "List",       query(:view => :list),  :class => "small-button", :id => "albums-list-button" %></span>
 </div>
 
 <div id="albums-container">
