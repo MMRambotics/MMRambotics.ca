@@ -26,8 +26,11 @@
   <div id="container">
     <div id="main-container">
       <div id="sidebar">
-        <%= render :partial => "menus/menu" %>
-        <%= render :partial => "ads/rotating" %>
+        <div id="non-twitter">
+          <%= render :partial => "menus/menu" %>
+          <%= render :partial => "ads/rotating" %>
+        </div>
+        <%= render :partial => "menus/twitter" %>
       </div>
 
       <div id="content">

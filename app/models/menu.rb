@@ -3,6 +3,7 @@ class Menu < ActiveRecord::Base
   has_many :pages
 
   scope :ordered, order("priority DESC, title")
+  scope :alphabetical, order("title")
 
   def items
     self.pages.reorder("title")

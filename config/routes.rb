@@ -8,6 +8,8 @@ Robotics::Application.routes.draw do
   resources :photos, :only => [:show]
   resources :feedbacks, :only => [:create]
 
+  get "sitemap" => "pages#index", :as => :sitemap
+
   root :to => "pages#home"
 
   # ActiveAdmin administration [generated].

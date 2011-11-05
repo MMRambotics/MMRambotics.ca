@@ -78,12 +78,12 @@ div#container {
       width: $sidebar_width;
       background: image-url("border-sidebar.png") no-repeat top left;
       min-height: 500px;
-      padding: 50px 0px 0px 20px;
+      padding: 50px 10px 0px 20px;
     }
 
     div#content {
       float: left;
-      width: 700px;
+      width: 900px - $sidebar_width;
       min-height: 500px;
       padding-bottom: 50px;
 
@@ -96,9 +96,11 @@ div#container {
         h2 {
           margin-bottom: 4px;
           font-size: 60px;
+          word-spacing: 10px;
         }
         h3 {
           font-size: 30px;
+          word-spacing: 6px;
         }
       }
     }
@@ -244,6 +246,7 @@ ul#main-menu {
 }
 
 ul#sub-menu-page {
+  padding: 0px;
   list-style: none;
   font-size: 20px;
   line-height: 30px;
@@ -443,4 +446,39 @@ input[type="submit"] {
   width: 670px;
   height: 400px;
   color: #000;
+}
+
+#share-this-container {
+  margin: 10px 0px;
+  h4 {
+    margin: 8px 0px;
+  }
+  div {
+    margin-left: -5px;
+  }
+}
+
+.left-offset {
+  margin-left: 15px;
+}
+
+#twitter-feed {
+  display: none;
+  background: image-url("twitter_bird.png") no-repeat top right;
+  .tweet {
+    margin: 10px;
+    padding: 7px 0px;
+    font-size: 15px;
+    width: $sidebar_width - 15px;
+    a:link { color: $link-colour; text-decoration: none; }
+    a:visited { color: darken($link-colour, 15%); }
+    a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
+  }
+
+  .tweet-hr {
+    background: image-url("tweet_hr.png") no-repeat center center;
+    height: 18px;
+  }
+
+  padding-top: 40px;
 }

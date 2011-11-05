@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title content_for(:title) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Petrona' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "readability" %>
+  <%= stylesheet_link_tag "printer", :media => "print" %>
+</head>
+
+<body class="<%= params[:colour] %>">
+  <div id="print-container" class="<%= params[:font] || "f1" %>">
+    <div id="controls">
+      <div id="colour-themes">
+        <%= link_to " ", query(:colour => ""), :id => "white-theme" %>
+        <%= link_to " ", query(:colour => "black"), :id => "black-theme" %>
+      </div>
+      <div style="clear: both;"></div>
+      <div id="font-themes">
+        <%= link_to "a", query(:font => "f1"), :class => "f1" %>
+        <%= link_to "a", query(:font => "f2"), :class => "f2" %>
+        <%= link_to "a", query(:font => "f3"), :class => "f3" %>
+        <%= link_to "a", query(:font => "f4"), :class => "f4" %>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+    <div id="content">
+      <h2><%= content_for(:title) %></h2>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

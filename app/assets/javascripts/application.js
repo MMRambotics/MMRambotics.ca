@@ -6,6 +6,7 @@
 //= require photos
 //= require feedbacks
 //= require maps
+//= require twitter
 
 function incrementAd() {
   $.currentAd++;

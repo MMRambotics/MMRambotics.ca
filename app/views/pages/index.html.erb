@@ -1,2 +1,11 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<%= content_for :title, "Site Map" %>
+
+<%= link_to "Sitemap XML", sitemap_path(:xml) %>
+
+<ul id="site-map-menu">
+  <li><%= link_to "Home", Page.home %></li>
+  <% Menu.alphabetical.each do |menu| %>
+    <% @menu = menu %>
+    <%= render :partial => "menus/individual" %>
+  <% end %>
+</ul>
