@@ -130,6 +130,48 @@ div#page-content {
   a:link { color: $link-colour; text-decoration: none; }
   a:visited { color: darken($link-colour, 15%); }
   a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
+
+  /* Tabs */
+  .ui-tabs {
+    .ui-tabs-hide {
+      display: none;
+    }
+
+    .ui-tabs-nav {
+      margin: 0px 0px 20px 0px;
+      padding: 0px;
+
+      li.ui-state-default {
+        list-style: none;
+        display: inline-block;
+        padding: 10px 0px;
+        background-color: #222;
+        @include background-gradient(#333, #222);
+        @include box-shadow(inset 0 -3px 0 rgba(0, 0, 0, 0.1));
+        @include border-radius(10px 10px 0px 0px);
+
+        a {
+          padding: 10px 20px;
+          color: #eee;
+          text-decoration: none;
+        }
+
+        &.ui-tabs-selected {
+          border-bottom: 1px solid #39f;
+        }
+
+        &.ui-state-hover {
+          border-bottom: 1px solid #aaf;
+          a {
+            color: #aaf;
+          }
+        }
+      }
+
+      clear: both;
+    }
+  }
+
 }
 
 ul#main-menu {

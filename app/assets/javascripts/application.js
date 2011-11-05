@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require youtube
 //= require albums
 //= require photos
@@ -68,5 +69,9 @@ $(function() {
       if (event.pageY < $("#feedback-form").position().top || event.pageX < $("#feedback-form").position().left)
         $("#feedback-form").fadeOut();
     }
+  });
+
+  $(".tabs").each(function() {
+    $(this).tabs();
   });
 });
