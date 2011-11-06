@@ -23,7 +23,7 @@ gem 'rdiscount'
 gem 'dj'
 gem 'paperclip'
 gem 'yaml_db'
-gem 'geocoder'
+gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
