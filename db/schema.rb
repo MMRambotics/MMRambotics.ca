@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(:version => 20111016001445) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order",      :default => 1
     t.integer  "priority",   :default => 1
   end
 
