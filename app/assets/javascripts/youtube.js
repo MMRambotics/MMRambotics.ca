@@ -1,10 +1,9 @@
-//for (var i in $.playlists) { if($.playlists.hasOwnProperty(i)) console.log(i); }
 function populatePlaylists() {
   $("#youtube-playlists").html('<table id="youtube-playlists-table"><tbody></tbody></table>');
   $.playlists = {}
 
   var url = "http://gdata.youtube.com/feeds/api/users/" + $.youtubeUser + "/playlists?v=2&alt=jsonc";
-  $.get(url, function(data) {
+  $.getJSON(url, function(data) {
     var playlists = data.data.items;
     for (var i = playlists.length - 1; i >= 0; --i) {
       populatePlaylistVideos(playlists[i]);
@@ -16,7 +15,7 @@ function populatePlaylists() {
 function recursivePlaylistVideos(playlist, page) {
   var url = "http://gdata.youtube.com/feeds/api/playlists/" + playlist.id + "?v=2&alt=jsonc";
   if (page != 0) url += "&start-index=" + page * 25;
-  $.get(url, function(data) {
+  $.getJSON(url, function(data) {
     for (var i = 0; i < data.data.items.length; i++) {
       var video = data.data.items[i].video;
       temp = new Object();

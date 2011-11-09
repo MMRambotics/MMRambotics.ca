@@ -17,7 +17,6 @@ module Robotics
 
     config.page_title = "MMRambotics FRC #2200"
     config.page_subheading = "MMRambotics FRC Team #2200"
-    config.first_logo = "http://www.usfirst.org/uploadedImages/Robotics_Programs/FRC/FRC_Communications_Resource_Center/Branding_and_Logos/FRCicon_Reverse.gif"
 
     config.calendar_email = "fgdrs2oufo37pbmsdqptaqk568@group.calendar.google.com"
 

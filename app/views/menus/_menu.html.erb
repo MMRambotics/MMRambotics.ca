@@ -1,3 +1,4 @@
+<nav>
 <ul id="main-menu">
   <li><%= link_to "Home", Page.home %></li>
   <% Menu.ordered.each do |menu| %>
@@ -5,7 +6,8 @@
     <%= render :partial => "menus/individual" %>
   <% end %>
 </ul>
+</nav>
 
 <br />
 
-<%= link_to image_tag(Robotics::Application.config.first_logo, :width => "180"), "http://usfirst.org", :target => "_blank", :class => "left-offset" %>
+<%= link_to image_tag(image_path("frc_logo.png")), "http://usfirst.org", :target => "_blank", :class => "left-offset" %>

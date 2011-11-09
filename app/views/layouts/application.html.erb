@@ -2,9 +2,19 @@
 <html>
 <head>
   <title><%= title content_for(:title) %></title>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="first, robots, robotics competition, frc, mmrambotics, rambotics, mmrobinson, hdsb, competition, 2200, ontario" />
+  <meta name="description" content="MMRambotics is a team of students from M.M. Robinson High School who build robots to compete in the FIRST Robotics Competition." />
+  <meta name="author" content="MMRambotics FRC 2200" />
+
+  <%= stylesheet_link_tag "application" %>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
   <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,28 +28,36 @@
     News, Events, Notices
   </div>
   <div id="slide-down">
+    <section>
     <div id="postings">
       <%= render :partial => "postings/three_column", :locals => { :news => @news, :events => @events, :team_notices => @team_notices } %>
     </div>
+    </section>
   </div>
 
   <div id="container">
     <div id="main-container">
       <div id="sidebar">
+        <aside>
         <div id="non-twitter">
           <%= render :partial => "menus/menu" %>
           <%= render :partial => "ads/rotating" %>
         </div>
         <%= render :partial => "menus/twitter" %>
+        </aside>
       </div>
 
       <div id="content">
         <div id="header">
+          <header>
           <h2><%= content_for :title %></h2>
           <h3><%= Robotics::Application.config.page_subheading %></h3>
+          </header>
         </div>
         <div id="page-content">
+          <article>
           <%= yield %>
+          </article>
         </div>
       </div>
     </div>

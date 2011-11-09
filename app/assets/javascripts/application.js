@@ -1,6 +1,4 @@
-//= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require youtube
 //= require albums
 //= require photos
@@ -55,12 +53,12 @@ $(function() {
     $("#slide-down").slideToggle(1000);
   });
 
-  $("#lightbox").click(function() {
+  $("#lightbox").click(function(event) {
     if (outsideLightboxContent(event.pageX, event.pageY))
       hideLightbox();
   });
 
-  $(document).click(function() {
+  $(document).click(function(event) {
     if ($("#slide-down").css("display") != "none") {
       if (event.pageY > ($("#slide-down").position().top + $("#slide-down").outerHeight()))
         $("#slide-down").slideToggle(1000);
