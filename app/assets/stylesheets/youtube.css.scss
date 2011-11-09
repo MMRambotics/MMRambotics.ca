@@ -89,7 +89,7 @@ table#youtube-playlists-table {
   }
 
   div.playlist-title {
-    font-family: Bebas;
+    @include bebas;
     letter-spacing: 2px;
   }
 }

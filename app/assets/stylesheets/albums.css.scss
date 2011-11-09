@@ -1,5 +1,6 @@
 div#albums-header {
   height: 30px;
+  background-image: image-url("dark-gradient.png");
   background-color: #222;
   margin: 0px 15px;
   padding: 4px;
@@ -18,7 +19,7 @@ div#albums-header {
   span#album-header-info {
     float: left;
     overflow: hidden;
-    font-family: Bebas;
+    @include bebas;
     font-size: 16px;
     letter-spacing: 2px;
     margin: 3px;

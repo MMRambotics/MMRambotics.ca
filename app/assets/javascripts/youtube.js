@@ -20,7 +20,7 @@ function recursivePlaylistVideos(playlist, page) {
       var video = data.data.items[i].video;
       temp = new Object();
       temp.description = video.description;
-      temp.permalink = video.player.default;
+      temp.permalink = video.player['default'];
       temp.title = video.title;
       temp.thumbnail = video.thumbnail.sqDefault;
       temp.id = video.id;

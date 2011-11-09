@@ -65,6 +65,7 @@ $(function() {
     }
 
     if ($("#feedback-form").css("display") != "none") {
+      if ($(event.target).is("select")) return; // Fixes bug: certain platforms would pass the next condition if the user is clicking a dropdown.
       if (event.pageY < $("#feedback-form").position().top || event.pageX < $("#feedback-form").position().left)
         $("#feedback-form").fadeOut();
     }

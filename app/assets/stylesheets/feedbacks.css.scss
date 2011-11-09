@@ -1,3 +1,33 @@
-// Place all the styles related to the feedbacks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#feedback-button {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: #222;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  cursor: pointer;
+  padding: 5px;
+  span {
+    a {
+      color: #fff;
+      text-decoration: none;
+      @include bebas;
+      letter-spacing: 2px;
+      font-size: 0.8em;
+    }
+  }
+}
+
+#feedback-form {
+  position: fixed;
+  padding: 15px;
+  @include box-shadow(-1px -1px 8px rgba(82, 168, 236, 0.3));
+  @include border-radius(5px 0px 0px 0px);
+  background-color: #fff;
+  bottom: 0px;
+  right: 0px;
+  width: 400px;
+  p, label, input, textarea, select {
+    margin: 10px;
+  }
+}
