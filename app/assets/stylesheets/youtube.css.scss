@@ -1,19 +1,7 @@
-@mixin transform($args) {
-  -webkit-transform: $args;
-  -moz-transform: $args;
-  -o-transform: $args;
-  -ms-transform: $args;
-  transform: $args;
-}
-
-$tag-margin: 8px;
-
 table#view-playlist-table {
   table-layout: fixed;
 
-  td#view-playlist-video {
-    width: 500px;
-  }
+  td#view-playlist-video { width: 500px; }
 
   #embed-video object {
     width: 480px;
@@ -22,14 +10,13 @@ table#view-playlist-table {
 
   div#video-data {
     color: #111;
+
     div#video-title {
       font-weight: bold;
       font-size: 110%;
     }
 
-    div {
-      margin: 10px 0px;
-    }
+    div { margin: 10px 0px; }
   }
 }
 
@@ -46,9 +33,7 @@ table#video-carousel {
           @include box-shadow($shadow);
         }
       }
-      td {
-        padding: 5px;
-      }
+      td { padding: 5px; }
     }
   }
   thead, tfoot { cursor: pointer; text-align: center; }
@@ -62,19 +47,15 @@ table#youtube-playlists-table {
     cursor: pointer;
     &:hover {
       img {
-        border-color: rgba(82, 168, 236, 0.8);
-        $shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 16px rgba(82, 168, 236, 0.8);
+        border-color: $shadow-blue;
+        $shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 16px $shadow-blue;
         @include box-shadow($shadow);
       }
 
       div.playlist-title {
         @include transform(rotate(-1deg));
-        &::after {
-          content: " <--";
-        }
-        &::before {
-          content: "--> ";
-        }
+        &::after  { content: " <--"; }
+        &::before { content: "--> "; }
       }
     }
   }

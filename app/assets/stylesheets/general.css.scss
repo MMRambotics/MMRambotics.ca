@@ -1,0 +1,54 @@
+/*
+ * This stylesheet should be used for resets and general styling.  General
+ * styling includes descriptive class definitions (such as .hidden).  There
+ * should probably never be an ID in here.
+ */
+
+body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blockquote, input, textarea, aside, header, section, article, nav {
+  margin:  0px;
+  padding: 0px;
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+img { border: 0px; }
+p + p { margin-top: 15px; }
+
+h3 {
+  margin: 10px 0px;
+  .homepage-head { font-style: italic; }
+}
+
+.clear { clear: both; }
+.hidden { display: none; }
+.left-offset { margin-left: 15px; }
+.button { @include button(#57a957); }
+
+/* Forms */
+input[type="text"] {
+  width: $field-width;
+  height: 18px;
+  padding: 4px;
+  font-size: 13px;
+  @include field;
+}
+
+input[type="submit"] { @include button(#fff); }
+
+select {
+  cursor: pointer;
+  padding: 10px;
+  width: $field-width;
+  padding: 4px;
+  font-size: 13px;
+  height: 27px;
+  border: 1px solid #ccc;
+  @include border-radius(4px);
+}
+
+textarea {
+  width: $field-width;
+  height: 54px;
+  padding: 4px;
+  font-size: 13px;
+  @include field;
+}

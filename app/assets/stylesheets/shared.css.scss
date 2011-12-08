@@ -1,0 +1,67 @@
+/*
+ * This stylesheet should be used for variables and mixins used throughout the
+ * application.
+ */
+
+/* Settings */
+$sidebar_width: 200px;
+$link-colour: #ccf;
+$field-width: 360px;
+$tag-margin: 8px;
+
+$shadow-blue: rgba(82, 168, 236, 0.6);
+
+/* Fonts */
+@font-face {
+	font-family: Bebas;
+	src: url(/bebas.ttf);
+}
+
+@mixin bebas {
+  font-family: Bebas, "Trebuchet MS", Helvetica, Charcoal, sans-serif;
+}
+
+/* General Mixins */
+@mixin image-right($width) {
+  width: $width;
+  margin: 15px;
+  float: right;
+  background-color: #111;
+  text-align: center;
+  padding-top: 10px;
+
+  p {
+    font-size: 90%;
+    padding-bottom: 5px;
+  }
+}
+
+@mixin field {
+  $shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  @include box-shadow($shadow);
+  @include border-radius(3px);
+  border: 1px solid #ccc;
+}
+
+@mixin anchors {
+  a:link { color: $link-colour; text-decoration: none; }
+  a:visited { color: darken($link-colour, 15%); }
+  a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
+}
+
+@mixin white-shadow($blur: 16px) {
+  $shadow: 0px 0px $blur rgba(255, 255, 255, 0.3);
+  @include box-shadow($shadow);
+}
+
+@mixin blue-shadow($x: 4px, $y: 4px, $blur: 16px) {
+  @include box-shadow($x $y $blur $shadow-blue);
+}
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -o-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
+}

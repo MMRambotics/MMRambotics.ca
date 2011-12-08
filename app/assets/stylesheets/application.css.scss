@@ -1,67 +1,18 @@
-@mixin bebas {
-  font-family: Bebas, "Trebuchet MS", Helvetica, Charcoal, sans-serif;
-}
+/* General */
+@import "shared.css.scss";
+@import "general.css.scss";
+@import "tabs.css.scss";
+@import "menu.css.scss";
 
-@font-face {
-	font-family: Bebas;
-	src: url(/bebas.ttf);
-}
-
+/* Page/controller specific */
 @import "youtube.css.scss";
 @import "photos.css.scss";
 @import "albums.css.scss";
 @import "feedbacks.css.scss";
 
-@mixin image-right($width) {
-  width: $width;
-  margin: 15px;
-  float: right;
-  background-color: #111;
-  text-align: center;
-  padding-top: 10px;
-
-  p {
-    font-size: 90%;
-    padding-bottom: 5px;
-  }
-}
-
-$sidebar_width: 200px;
-$link-colour: #ccf;
-
-body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blockquote, input, textarea, aside, header, section, article, nav {
-  margin:  0px;
-  padding: 0px;
-  font-family: "Droid Sans", Arial, sans-serif;
-}
-
-img {
-  border: 0px;
-}
-
+/* Application Layout */
 body {
   background: #000 image-url("main-background.png") no-repeat top center;
-}
-
-.button {
-  @include button(#57a957);
-}
-
-div#rotating-ads {
-  margin: 10px;
-  text-align: center;
-
-  .rotating-ad {
-    display: none;
-    &:hover img {
-      $shadow: 0px 0px 16px rgba(255, 255, 255, 0.3);
-      @include box-shadow($shadow);
-    }
-
-    &.visible {
-      display: block;
-    }
-  }
 }
 
 div#container {
@@ -74,21 +25,19 @@ div#container {
 
   div#main-container {
     background: image-url("container-background-bright.png") no-repeat top center;
+    min-height: 500px;
     width: 960px;
     margin: 0 auto;
-    min-height: 400px;
 
     div#sidebar {
       float: left;
       width: $sidebar_width;
-      min-height: 500px;
       padding: 50px 10px 0px 20px;
     }
 
     div#content {
       float: left;
       width: 900px - $sidebar_width;
-      min-height: 500px;
       padding-bottom: 50px;
 
       div#header {
@@ -109,182 +58,33 @@ div#container {
         }
       }
 
-    }
-  }
-}
+      div#page-content {
+        margin-left: 10px;
+        line-height: 140%;
 
-#homepage-image {
-  $shadow: 0px 0px 9px rgba(255, 255, 255, 0.3);
-  @include image-right(230px);
-  @include box-shadow($shadow);
-  @include border-radius(3px);
-}
+        @include anchors;
 
-h3 {
-  margin: 10px 0px;
-}
-
-h3.homepage-head {
-  font-style: italic;
-}
-
-p + p {
-  margin-top: 15px;
-}
-
-div#page-content {
-  margin-left: 10px;
-  line-height: 140%;
-
-  a:link { color: $link-colour; text-decoration: none; }
-  a:visited { color: darken($link-colour, 15%); }
-  a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
-
-  h3 {
-    margin: 25px 0px 5px 0px;
-  }
-
-  .article-left, .article-right {
-    img {
-      $shadow: 0px 0px 9px rgba(255, 255, 255, 0.3);
-      @include box-shadow($shadow);
-      border: 1px solid #000;
-    }
-  }
-  .article-left  {
-    float: left;
-    margin: 8px 15px 0px 0px;
-  }
-  .article-right {
-    float: right;
-    margin: 0px 15px;
-  }
-
-  /* Tabs */
-  .ui-tabs {
-    > div {
-      clear: both;
-    }
-
-    .ui-tabs-panel {
-      padding-top: 20px;
-    }
-
-    .ui-tabs-hide {
-      display: none;
-    }
-
-    .ui-tabs-nav {
-      padding: 0px;
-      li.ui-state-default {
-        list-style: none;
-        float: left;
-        margin: 3px;
-        display: block;
-        display: inline-block;
-        max-width: 200px;
-        padding: 10px 0px;
-        background-color: #222;
-        @include background-gradient(#333, #222);
-        @include box-shadow(inset 0 -3px 0 rgba(0, 0, 0, 0.1));
-        @include border-radius(10px 10px 0px 0px);
-
-        a {
-          padding: 10px 20px;
-          color: #eee;
-          text-decoration: none;
+        h3 {
+          margin: 25px 0px 5px 0px;
         }
 
-        &.ui-tabs-selected {
-          border-bottom: 1px solid #39f;
-        }
-
-        &.ui-state-hover {
-          border-bottom: 1px solid #aaf;
-          a {
-            color: #aaf;
+        .article-left, .article-right {
+          img {
+            @include white-shadow(9px);
+            border: 1px solid #000;
           }
         }
-      }
-    }
-  }
-
-}
-
-ul#main-menu {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  line-height: 35px;
-
-  li a, span {
-    color: #ddd;
-    @include bebas;
-    font-size: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 2px;
-    padding: 0px 0px 3px 3px;
-  }
-
-  > li {
-    width: $sidebar-width - 20px;
-    position: relative;
-    text-align: right;
-
-    &:hover, &:active, &:focus {
-      > a, span {
-        $shadow: -10px 0px 5px -5px rgba(51, 153, 255, 0.6);
-        @include box-shadow($shadow);
-        color: #fff;
-      }
-    }
-
-    ul.sub-menu {
-      background-color: #222;
-      @include background-gradient(#333, #222);
-      @include box-shadow(inset 0 -3px 0 rgba(0, 0, 0, 0.1));
-      color: #eee;
-      z-index: 3;
-      margin: 0px; padding: 0px;
-      display: none;
-      position: absolute;
-      top: -3px;
-      list-style: none;
-      text-align: left;
-      left: $sidebar-width - 20px;
-      padding: 10px;
-      @include border-radius(12px);
-
-      li {
-        padding: 0px;
-        width: 250px;
-        position: relative;
-        a {
-          font-size: 18px;
-          display: block;
-          padding: 5px 10px;
-          &:hover {
-            background-color: #324F4F;
-            @include border-radius(5px);
-          }
+        .article-left  {
+          float: left;
+          margin: 8px 15px 0px 0px;
+        }
+        .article-right {
+          float: right;
+          margin: 0px 15px;
         }
       }
     }
-
-    &:hover, &:active, &:focus {
-      ul.sub-menu {
-        display: block;
-      }
-    }
   }
-}
-
-ul#sub-menu-page {
-  padding: 0px;
-  list-style: none;
-  font-size: 20px;
-  line-height: 30px;
 }
 
 div#bar {
@@ -303,7 +103,7 @@ div#bar {
   text-align: right;
 
   &:hover {
-    $shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 24px rgba(82, 168, 236, 0.6);
+    $shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0px 0px 24px $shadow-blue;
     @include box-shadow($shadow);
   }
 }
@@ -340,9 +140,8 @@ div#slide-down {
         text-align: left;
         padding-left: 5px;
       }
-      span {
-        color: #eee;
-      }
+
+      span { color: #eee; }
 
       td {
         vertical-align: top;
@@ -359,15 +158,11 @@ div#slide-down {
 
     span.highlight {
       color: $link-colour;
-      span {
-        font-size: 80%;
-      }
+      span { font-size: 80%; }
     }
-  }
-}
 
-#postings-hr {
-  cursor: pointer;
+    #postings-hr { cursor: pointer; }
+  }
 }
 
 div#lightbox {
@@ -381,7 +176,7 @@ div#lightbox {
   display: none;
 
   div#lightbox-header {
-    width: 1045px;
+    width: 985px;
     text-align: right;
     cursor: pointer;
     z-index: 50;
@@ -391,60 +186,37 @@ div#lightbox {
   }
 
   div#lightbox-content {
-    width: 960px;
+    width: 900px;
     margin: -12px auto 50px auto;
     z-index: 48;
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 30px;
     @include border-radius(5px);
-    @include box-shadow(4px 4px 16px rgba(82, 168, 236, 0.6));
+    @include blue-shadow;
     overflow: auto;
+  }
+
+  div#lightbox-alternate-close {
+    display: none;
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      @include box-shadow(inset 1px 1px 8px rgba(255, 0, 0, 0.4));
+    }
+
+    span {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }
 
-.hidden {
-  display: none;
-}
-
-@mixin field {
-  $shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  @include box-shadow($shadow);
-  @include border-radius(3px);
-  border: 1px solid #ccc;
-}
-
-input[type="text"] {
-  width: 360px;
-  height: 18px;
-  padding: 4px;
-  font-size: 13px;
-  @include field;
-}
-
-select {
-  cursor: pointer;
-  padding: 10px;
-  width: 360px;
-  padding: 4px;
-  font-size: 13px;
-  height: 27px;
-  border: 1px solid #ccc;
-  @include border-radius(4px);
-}
-
-textarea {
-  width: 360px;
-  height: 54px;
-  padding: 4px;
-  font-size: 13px;
-  @include field;
-}
-
-input[type="submit"] {
-  @include button(#fff);
-}
-
+/* Components */
 #map {
   margin: 15px;
   width: 670px;
@@ -463,31 +235,48 @@ input[type="submit"] {
   }
 }
 
-.left-offset {
-  margin-left: 15px;
+#homepage-image {
+  @include white-shadow(9px);
+  @include image-right(230px);
+  @include border-radius(3px);
 }
 
 #twitter-feed {
   display: none;
+  &.visible { display: block; }
   background: image-url("twitter_bird.png") no-repeat top right;
+  padding-top: 40px;
+
   .tweet {
     margin: 10px;
     padding: 7px 0px;
     font-size: 15px;
     width: $sidebar_width - 15px;
-    a:link { color: $link-colour; text-decoration: none; }
-    a:visited { color: darken($link-colour, 15%); }
-    a:active, a:hover  { color: darken($link-colour, 10%); text-decoration: underline; }
+    @include anchors;
   }
 
   .tweet-hr {
     background: image-url("tweet_hr.png") no-repeat center center;
     height: 18px;
   }
-
-  padding-top: 40px;
 }
 
-.clear {
-  clear: both;
+div#rotating-ads {
+  margin: 10px;
+  text-align: center;
+
+  .rotating-ad {
+    display: none;
+    &:hover img {
+      @include white-shadow;
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
 }
+
+/* Responsive design stylesheets */
+@import "medium.css.scss";
+@import "small.css.scss";

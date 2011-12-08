@@ -59,6 +59,10 @@ $(function() {
       hideLightbox();
   });
 
+  $("#lightbox-alternate-close").click(function() {
+    hideLightbox();
+  });
+
   $(document).click(function(event) {
     if ($("#slide-down").css("display") != "none") {
       if (event.pageY > ($("#slide-down").position().top + $("#slide-down").outerHeight()))

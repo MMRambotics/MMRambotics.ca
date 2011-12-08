@@ -33,6 +33,6 @@ $(function() {
   if ($("#twitter-feed").length == 1) {
     var count = calculate_tweet_quantity();
     $("<script src='http://api.twitter.com/1/statuses/user_timeline.json?screen_name=mmrambotics&count=" + count + "&callback=twitter_callback'></script>").appendTo("body");
-    $("#twitter-feed").show();
+    $("#twitter-feed").addClass("visible");
   }
 });

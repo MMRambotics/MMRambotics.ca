@@ -1,0 +1,47 @@
+.ui-tabs {
+  > div {
+    clear: both;
+  }
+
+  .ui-tabs-panel {
+    padding-top: 20px;
+  }
+
+  .ui-tabs-hide {
+    display: none;
+  }
+
+  .ui-tabs-nav {
+    padding: 0px;
+    li.ui-state-default {
+      list-style: none;
+      float: left;
+      margin: 3px;
+      display: block;
+      display: inline-block;
+      max-width: 200px;
+      padding: 10px 0px;
+      background-color: #222;
+      @include background-gradient(#333, #222);
+      @include box-shadow(inset 0 -3px 0 rgba(0, 0, 0, 0.1));
+      @include border-radius(10px 10px 0px 0px);
+
+      a {
+        padding: 10px 20px;
+        color: #eee;
+        text-decoration: none;
+      }
+
+      &.ui-tabs-selected {
+        border-bottom: 1px solid #39f;
+      }
+
+      &.ui-state-hover {
+        border-bottom: 1px solid #aaf;
+        a {
+          color: #aaf;
+        }
+      }
+    }
+  }
+}
